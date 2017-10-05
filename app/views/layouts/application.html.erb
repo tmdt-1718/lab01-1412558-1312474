@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Lab1</title>
+    <title><%= @page_title %></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
@@ -12,16 +12,20 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-
-      <%= render "shared/header"%>
-    </header>
+    <%= render "shared/header"%>
     <div class="content">
-      <%= yield %>
+      <div class="row">
+        <div class="col-md-2">
+          <h1>SIDEBAR MENU</h1>
+        </div>
+        <div class="col-md-10">
+          <%= yield %>
+        </div>
+      </div>
     </div>
-
-      <%= render "shared/footer"%>
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </body>
+    <%= render "shared/footer"%>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
 </html>
