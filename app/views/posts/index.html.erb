@@ -1,0 +1,9 @@
+<h1>Page Posts</h1>
+<%= link_to  "New Post", new_post_path, class: "btn btn-primary" %>
+<% @posts.each do |post| %>
+<div class="post_wrapper">
+  <h2 class="title"><%= link_to post.title, post %></h2>
+  <p class="date"><%= post.created_at.strftime('%B, %d, %Y') %></p>
+</div>
+<hr>
+<% end %>
