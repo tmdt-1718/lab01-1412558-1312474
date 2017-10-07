@@ -12,7 +12,7 @@
       <p><i>By: KUGA on <%= post.created_at.strftime('%B, %d, %Y') %></i></p>
       <p><i><%= post.num_views %>
         Views |
-        <%= @post.comments.count %>
+        <%= post.comments.count %>
         Comments</i></p>
         <p><strong><%= post.body %></strong></p>
 
