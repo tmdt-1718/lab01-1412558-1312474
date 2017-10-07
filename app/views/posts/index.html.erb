@@ -1,9 +1,23 @@
 <h1>Page Posts</h1>
 <%= link_to  "New Post", new_post_path, class: "btn btn-primary" %>
-<% @posts.each do |post| %>
-<div class="post_wrapper">
-  <h2 class="title"><%= link_to post.title, post %></h2>
-  <p class="date"><%= post.created_at.strftime('%B, %d, %Y') %></p>
-</div>
 <hr>
+<div class="w3-row-padding">
+<% @posts.each do |post| %>
+  <div class="w3-third w3-container  my-blog-item">
+    <%= image_tag(post.cover_url.to_s, alt: 'Image', class: "w3-hover-opacity", style: "width:100%")%>
+    <div class="w3-container w3-white">
+      <h3>
+        <b><%= post.title %></b>
+      </h3>
+      <p><i>By: KUGA on <%= post.created_at.strftime('%B, %d, %Y') %></i></p>
+      <p><i><%= post.num_views %>
+        Views |
+        <%= @post.comments.count %>
+        Comments</i></p>
+        <p><strong><%= post.body %></strong></p>
+
+      <%= link_to 'Readmore', post, class: "btn btn-link"%>
+    </div>
+  </div>
 <% end %>
+</div>
