@@ -1,0 +1,39 @@
+<h1 class="title">
+  <%= @post.title%>
+</h1>
+<p class="body">
+  <div class="my-blog-cover" style="background-image: url(<%= @post.cover_url.to_s %>);"></div>
+</p>
+
+<p>
+  <strong><%= @post.body %></strong>
+</p>
+<p class="date">
+  <i>submitted
+    <%= time_ago_in_words(@post.created_at) %>
+    ago</i><br>
+</p>
+<p>
+  <i>By
+    <%= @post.user.email %></i>
+</p>
+<p>
+  <i><%= @post.num_views %>
+    Views |
+    <%= @post.comments.count %>
+    Comments</i>
+</p>
+<% if(user_signed_in? && @post.user.id == current_user.id) %>
+<%= link_to  "Edit", edit_post_path, class: "btn btn-warning" %>
+<%= link_to  "Delete", post_path, method: :delete, data: { confirm: 'Are you sure?'},  class: "btn btn-danger" %>
+<% end %>
+
+<hr>
+<hr>
+<div id="comments">
+  <h4><%= @post.comments.count %>
+    Comments</h2>
+  <%= render @post.comments %>
+  <h5>Add a comment</h3>
+  <%= render 'comments/form' %>
+</div>

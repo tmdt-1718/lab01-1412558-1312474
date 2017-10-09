@@ -1,0 +1,15 @@
+version: '3'
+services:
+  db:
+    image: postgres
+    container_name: db
+    environment:
+      - POSTGRES_USER=myblog
+      - POSTGRES_PASSWORD=123
+  web:
+    build: .
+    command: rails s -b 0.0.0.0
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/myblog
