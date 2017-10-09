@@ -1,0 +1,31 @@
+<div id="photo-section">
+  <div class="row">
+    <% if photos %>
+    <% photos.each do |photo| %>
+    <div id="photo-list">
+      <div class="col-xs-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h4>
+              <%= photo.album.user.username %></h4>
+            <p>Views:
+              <%= photo.num_views %></p>
+
+          </div>
+
+          <%= cl_image_tag photo.img %>
+
+        </div>
+        <div align="center">
+          <% if user_signed_in? && (current_user == photo.album.user || current_user.admin? ) %>
+          <%= link_to "Delete this image", photo_path(photo), method: :delete, data: {confirm: "Are you sure you want to delete the image"}, class: "btn btn-xs btn-danger" %>
+        </div>
+        <% end %>
+      </div>
+
+    </div>
+
+    <% end %>
+    <% end %>
+  </div>
+</div>

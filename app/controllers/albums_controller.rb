@@ -21,6 +21,11 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @photo = Photo.new
+    @list_photos = Photo.all
+    @list_photos.each do |photo|
+      photo.update(num_views: photo.num_views + 1)
+    end
   end
 
   def album_params

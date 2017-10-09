@@ -1,1 +1,7 @@
-show image
+
+<% if user_signed_in? %>
+    <div id="upload_photos_section">
+        <%= render 'photos/form_upload', photo: @photo, album: @album %>
+    </div>
+<% end %>
+<%= render 'photos/list_photos' , photos: @list_photos %>
