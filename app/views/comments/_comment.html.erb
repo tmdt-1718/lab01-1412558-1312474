@@ -1,9 +1,9 @@
 <div class="comment clearfix">
   <div class="comment_content">
-    <p class="comment_name"><strong><%= comment.name%></strong></p>
+    <p class="comment_name"><strong><%= comment.user.email%></strong></p>
     <p class="comment_body"><%= comment.body%></p>
     <p class="comment_time"><i><%= time_ago_in_words(comment.created_at)%> ago</i></p>
   </div>
 </div>
-<p><%= link_to 'Delete', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?'}%></p>
+<!-- <p><%= link_to 'Delete', [comment.post, comment], method: :delete, data: { confirm: 'Are you sure?'}%></p> -->
 <hr>

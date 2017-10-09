@@ -14,13 +14,20 @@
     ago</i><br>
 </p>
 <p>
+  <i>By
+    <%= @post.user.email %></i>
+</p>
+<p>
   <i><%= @post.num_views %>
     Views |
     <%= @post.comments.count %>
     Comments</i>
 </p>
+<% if(user_signed_in? && @post.user.id == current_user.id) %>
 <%= link_to  "Edit", edit_post_path, class: "btn btn-warning" %>
 <%= link_to  "Delete", post_path, method: :delete, data: { confirm: 'Are you sure?'},  class: "btn btn-danger" %>
+<% end %>
+
 <hr>
 <hr>
 <div id="comments">

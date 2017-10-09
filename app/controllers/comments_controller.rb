@@ -1,8 +1,12 @@
 class CommentsController < ApplicationController
-
+before_action :authenticate_user!
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.create(params[:comment].permit(:name, :body))
+    @comment = @post.comments.create(params[:comment].permit(:body))
+    @comment.user = current_user
+    if @comment.save
+      flash[:success] = "The post was successfully created"
+    end
     redirect_to post_path(@post)
   end
 
@@ -12,5 +16,4 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_to post_path(@post)
   end
-
 end

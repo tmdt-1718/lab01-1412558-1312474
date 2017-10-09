@@ -14,7 +14,10 @@
         <b><%= post.title %></b>
       </h3>
       <p>
-        <i>By: KUGA on
+        <i>By:
+          <%= post.user.email %>
+        </p>
+        <p>On:
           <%= post.created_at.strftime('%B, %d, %Y') %></i>
       </p>
       <p>
