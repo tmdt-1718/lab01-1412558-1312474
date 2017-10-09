@@ -7,6 +7,8 @@ resources :posts do
   resources :comments
 end
 resources :albums
+resources :photos
+resources :image
 root 'home#index'
 get '/about', to: 'about#index'
 get '/home', to: 'home#index'

@@ -3,7 +3,7 @@
 <hr>
 <div class="w3-row-padding">
   <% @albums.each do |album| %>
-  <%= link_to  post do %>
+  <%= link_to  album do %>
   <div class="w3-third w3-container w3-hover-opacity  my-blog-item">
     <%= image_tag(album.cover_url.to_s, alt: 'Image', class: "img-responsive", style: "width: 100%; height: 20vw; ;min-height:200px")%>
     <div class="w3-container w3-white">
@@ -16,7 +16,7 @@
         </p>
         <p>
           <i>Totalviews:
-            <%= album.total_views %>
+            <%= album.total_view %>
           </p>
         </div>
       </div>
